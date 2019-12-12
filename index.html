@@ -9,7 +9,7 @@
     <title>SVG to Eagle CAD converter</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
@@ -56,7 +56,7 @@
               </ul>
               <hr>
               <span>Normally copy/paste works fine, however for complex SVGs the commands become
-                too big to paste into Eagle's command box. You'll need to click 'Download Eagle Script' 
+                too big to paste into Eagle's command box. You'll need to click 'Download Eagle Script'
                 and then load that script in Eagle CAD.</span>
               <hr>
               <span><strong>Note:</strong> Filled polys with holes will show up in the preview as completely
@@ -102,8 +102,47 @@
             <span class="text-muted">Config:</span>
           </h4>
             <div class="mb-3">
-              <label for="">Eagle CAD Layer</label>
-              <input type="text" class="form-control" id="eagleLayer" placeholder="Eagle CAD Layer" value="tPlace" required>
+                <label for="">Eagle CAD Layer</label>
+                <select class="form-control" id="eagleLayer" required>
+                    <option value="Top">1 Top</option>
+                    <option value="Bottom">16 Bottom</option>
+                    <option value="Pads">17 Pads</option>
+                    <option value="Vias">18 Vias</option>
+                    <option value="Unrouted">19 Unrouted</option>
+                    <option value="Dimension">20 Dimension</option>
+                    <option value="tPlace">21 tPlace</option>
+                    <option value="bPlace">22 bPlace</option>
+                    <option value="tOrigins">23 tOrigins</option>
+                    <option value="bOrigins">24 bOrigins</option>
+                    <option value="tNames" selected>25 tNames</option>
+                    <option value="bNames">26 bNames</option>
+                    <option value="tValues">27 tValues</option>
+                    <option value="bValues">28 bValues</option>
+                    <option value="tStop">29 tStop</option>
+                    <option value="bStop">30 bStop</option>
+                    <option value="tCream">31 tCream</option>
+                    <option value="bCream">32 bCream</option>
+                    <option value="tFinish">33 tFinish</option>
+                    <option value="bFinish">34 bFinish</option>
+                    <option value="tGlue">35 tGlue</option>
+                    <option value="bGlue">36 bGlue</option>
+                    <option value="tTest">37 tTest</option>
+                    <option value="bTest">38 bTest</option>
+                    <option value="tKeepout">39 tKeepout</option>
+                    <option value="bKeepout">40 bKeepout</option>
+                    <option value="tRestrict">41 tRestrict</option>
+                    <option value="bRestrict">42 bRestrict</option>
+                    <option value="vRestrict">43 vRestrict</option>
+                    <option value="Drills">44 Drills</option>
+                    <option value="Holes">45 Holes</option>
+                    <option value="Milling">46 Milling</option>
+                    <option value="Measures">47 Measures</option>
+                    <option value="Document">48 Document</option>
+                    <option value="Reference">49 Reference</option>
+                    <option value="tDocu">51 tDocu</option>
+                    <option value="bDocu">52 bDocu</option>
+                  </select>
+              <!--<input type="text" class="form-control" id="eagleLayer" placeholder="Eagle CAD Layer" value="tPlace" required>-->
               <div class="invalid-feedback">
                 Eagle CAD Layer is required.
               </div>
@@ -115,13 +154,20 @@
                 Signal Name is required.
               </div>
             </div>
-            <div class="mb-3">
+            <!--<div class="mb-3">
               <label for="">SVG scale factor <span class="text-muted small">(if dimensions not found in document)</span></label>
               <input type="text" class="form-control" id="svgScale" placeholder="SVG scale factor" value="3.542"required>
               <div class="invalid-feedback">
                 SVG scale factor is required.
               </div>
-            </div>
+            </div>-->
+            <div class="mb-3">
+                <label for="">Trace Width</label>
+                <input type="text" class="form-control" id="traceWidth" placeholder="Trace Width" value="0.001"required>
+                <div class="invalid-feedback">
+                  Trace Width factor is required.
+                </div>
+              </div>
             <h4 class="mb-3">Output format:</h4>
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
@@ -153,6 +199,8 @@
 
     <script src="simplify.js"></script>
     <script src="svgtoeagle.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.24/bootstrap-native-v4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
