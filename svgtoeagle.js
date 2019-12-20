@@ -59,7 +59,7 @@ function polygonArea (poly) {
 // Move a small distance away from path[idxa] towards path[idxb]
 function interpPt (path, idxa, idxb) {
   var TRACEWIDTH = document.getElementById('traceWidth').value
-  var amt = TRACEWIDTH / 8 // a fraction of the trace width so we don't get much of a notch in the line
+  var amt = TRACEWIDTH / 100 // a fraction of the trace width so we don't get much of a notch in the line // TODO: ?!
   // wrap index
   if (idxb < 0) idxb += path.length
   if (idxb >= path.length) idxb -= path.length
